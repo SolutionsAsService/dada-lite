@@ -54,8 +54,10 @@ JS = r"""
 
   if (document.documentElement.scrollWidth > W)
     out.overflow = [...document.querySelectorAll('body *')]
-      .filter(e => e.getBoundingClientRect().right > W + 0.5)
-      .slice(0, 5).map(e => `${e.tagName.toLowerCase()}.${e.className} right=${Math.round(e.getBoundingClientRect().right)}`);
+      .filter(e => !e.closest('svg') && e.getBoundingClientRect().right > W + 0.5)
+      .filter(e => { for (let p = e.parentElement; p && p !== document.body; p = p.parentElement) {
+        const o = getComputedStyle(p).overflowX; if (o === 'hidden' || o === 'clip' || o === 'auto' || o === 'scroll') return false; } return true; })
+      .slice(0, 5).map(e => `${e.tagName.toLowerCase()}.${typeof e.className === 'string' ? e.className : ''} right=${Math.round(e.getBoundingClientRect().right)}`);
 
   const seen = new Set();
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
