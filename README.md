@@ -1,34 +1,39 @@
-# DADA — Directed Ambition Design Agent
+# DADA-Lite
 
-An agent skill for ambitious graphic design, packaged from the Graphic Design Agentic Workflow (gdaw). It supports identity, posters, books, editorial design, motion, typography, imagery, data graphics, and interfaces.
+The Directed Ambition Design Agent on a budget. Same goal as [DADA](https://github.com/SolutionsAsService/dada): ambitious design that survives critique. It costs far fewer tokens.
 
-The original anchor catalog and graph structure live in a linked reference. DADA traverses that graph non-linearly through a living Frontier, with no move quota, until the critics converge and the stop conditions hold.
+| | DADA | DADA-Lite |
+|---|---|---|
+| Critics | one sub-agent per authority (7+ seats), every round | four seats in **one** pass per round, run by at most one sub-agent |
+| Rounds | until two consecutive rounds are clean, no cap | at most **three**; stop at the first round with no objection |
+| Defect finding | critics read screenshots | **scripts measure first**: overflow, text contrast, contrast over photos, targets, alt |
+| Log | five artifacts, full anchor ledger | one short `DESIGN-LOG.md` |
+
+Why it works: on recent site redesigns, most real defects (text over photos, cut-off focus rings, overflow, a fix's own regression) were found by measurement, not by critics, and several critic "defects" were screenshot artefacts. DADA-Lite measures first and spends the critic pass on what scripts can't judge: ambition, claims, hierarchy and type.
 
 ## Install
 
-Install with the skills CLI from any project folder:
-
 ```sh
-npx skills add AnEntrypoint/dada -s dada
+npx skills add SolutionsAsService/dada-lite -s dada-lite
 ```
 
-The CLI detects your agent, copies the `dada` skill into its skills folder, and records it in `skills-lock.json`. Use `npx skills list` to confirm the install.
-
-This repository also includes `.agents/skills/dada`, a relative link to `skills/dada`, for workspace discovery. After opening this project, the skill is available on the next turn.
-
-To copy the skill by hand instead, copy `skills/dada` into your agent’s skills directory, for example `~/.agents/skills/dada`, or `~/.codex/skills/dada` for Codex. Preserve any existing installation before replacing it.
+Or copy `skills/dada-lite` into your agent's skills folder (for Claude Code, `~/.claude/skills/dada-lite`). `.agents/skills/dada-lite` links to it for workspace discovery.
 
 ## Use
 
-Invoke `$dada` with a design brief. DADA always pursues maximum artistic ambition and runs in one of two modes, chosen once and stated in the Traversal Plan:
+Invoke `$dada-lite` (or `/dada-lite`) with a brief, for example "redesign this landing page" or "a site for a hot tub dealer in San Diego". Read [`skills/dada-lite/SKILL.md`](skills/dada-lite/SKILL.md) for the contract.
 
-- **Autonomous** judges the work on its own terms (inner necessity and significant form), with no ideology, cause or market as a veto. It is the default unless the brief names a client, audience or public constraint.
-- **Adaptive** adds approachability: MAYA, Most Advanced Yet Acceptable, requires both the advanced and the acceptable pole to hold.
+The bundled tools need Python with `pip install playwright pillow`, plus a local Chrome or `playwright install chromium`:
 
-The traversal is non-linear: each pass spends one candidate from the Frontier (outgoing, incoming and dotted edges from visited anchors), branches between rival Breakers, and reopens earlier moves when a dependency changes. A move count is never a stopping rule. The run closes only when the five stop conditions hold: no open Frontier items, a WHOLE panel round with every required critic passing, saturation across two consecutive WHOLE rounds, a logged ambition push, and every dotted edge applied or declined. A Lite run (one move, one panel round) happens only on explicit request, and an interrupted run records its Open frontier and resume point in `DESIGN-LOG.md`.
+```sh
+python skills/dada-lite/tools/audit.py   --base http://localhost:8000 --pages index,contact --widths 1280,390,320
+python skills/dada-lite/tools/capture.py --base http://localhost:8000 --pages index,contact --out shots/r1
+```
 
-The workflow records a Traversal Plan with its Frontier, Decision Records, Panel Reports, an Anchor Ledger, and a Compliance Check in `DESIGN-LOG.md`. Read `skills/dada/SKILL.md` for the full contract and `skills/dada/references/anchor-graph.md` for the graph. The verdict on every node of that graph from the most recent traversal is in `skills/dada/references/traversal-ledger.md`.
+`references/carry-forward.md` lists CSS and capture traps found in earlier runs, each with the measurement that proved it. Read it before building.
 
-## Validation
+## Repository
 
-Run `python3 scripts/validate_skills.py` with PyYAML installed. GitHub Actions runs the same metadata, reference, and discovery-link validation for pushes and pull requests.
+- `skills/dada-lite/`: the skill (SKILL.md, references, tools, agent metadata).
+- `tools/` and `web/`: the DADA showcase page and its measurement tools, inherited from the DADA repository.
+- `scripts/validate_skills.py`: metadata and link validation (CI runs it on every push).

@@ -1,0 +1,4 @@
+interface:
+  display_name: "DADA-Lite: Directed Ambition on a budget"
+  short_description: "Ambitious design: measure first, one lean critic panel"
+  default_prompt: "Use $dada-lite to design or redesign a visual artifact: measure with the bundled scripts, run at most three four-seat critic rounds, and keep a short DESIGN-LOG.md."
