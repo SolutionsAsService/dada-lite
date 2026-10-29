@@ -46,6 +46,7 @@ Read [references/carry-forward.md](references/carry-forward.md) and the project'
 ### 1. Plan (5 minutes, in the log)
 - One-sentence brief and the mode.
 - **Seed**: one stance, two rules, one breaker, and one counterpoint reached by a dotted edge, copied verbatim from [references/anchor-graph.md](references/anchor-graph.md). Good defaults for websites: stance `Make It Bigger (Paula Scher)` or `White (Kenya Hara)`; rules `Grid Systems in Graphic Design (Josef Müller-Brockmann)` and `WCAG 2.2 Contrast and Perceivability (W3C)`; a breaker such as `Saul Bass: A Life in Film and Design (Jennifer Bass, Pat Kirkham)`, `Learning from Las Vegas (Venturi, Scott Brown, Izenour)` or `Irma Boom: Biography in Books (Irma Boom)`.
+- **Pages**: websites are multi-page whenever possible: a page per service, product, topic or tool, plus home and the contact, about or legal pages that apply, under shared navigation. One page only for something that is genuinely one screen (a single-purpose tool or game), with the reason in the log. Redesigning a one-page site means splitting it.
 - **Premortem** of what exists, if anything: capture it, run the audit, and list its failures yourself.
 
 ### 2. Build
