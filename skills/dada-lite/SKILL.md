@@ -41,7 +41,7 @@ For brand or claims-heavy work, swap Craft for **Honesty** (Alberto Cairo, *How 
 ## Workflow
 
 ### 0. Read the carry-forward
-Read [references/carry-forward.md](references/carry-forward.md) and the project's own `CARRY-FORWARD.md` if one exists. Apply them before building.
+Read [references/carry-forward.md](references/carry-forward.md) (facts about the medium), [references/lessons.md](references/lessons.md) (how to run the process well) and the project's own `CARRY-FORWARD.md` if one exists. Apply them before building.
 
 ### 1. Plan (5 minutes, in the log)
 - One-sentence brief and the mode.

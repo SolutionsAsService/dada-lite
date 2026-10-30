@@ -26,3 +26,15 @@ Read before building. Each line names the trap, the measurement that proved it, 
 ## Content honesty
 - No invented testimonials, stats, years in business, prices, licences or response times. Use plainly marked placeholders ("licence: add number") and a fictional 555-01xx phone number until the owner supplies real ones.
 - A claim you wrote yourself (e.g. "we reply within one business day") is still a claim. Remove it unless the owner can stand behind it.
+
+## Measured in later runs (2026-10-29)
+- **`display: block` on a class beats the browser's `[hidden] { display: none }`**, so `hidden` error messages showed on a pristine form and after a valid submit. Add `[hidden] { display: none !important; }`, and assert hidden state after every interaction, not only the success state.
+- **Google Fonts' woff2 files did not appear in Resource Timing**, so a page measuring its own weight undercounted by 120 KB (27.7 → 150.8 KB once self-hosted). Self-host fonts on any page that reports its own size.
+- **Google Apps Script web apps send no CORS headers**, so `fetch(..., { mode: "no-cors" })` resolves whatever happened on the server. Say "sent", never "confirmed", and keep the fields on a network error.
+- **A leading space inside a span in an `inline-flex` link collapses** ("Call(760)…"). Use `gap` on the link.
+- **An upright phone version of a horizontal rail** needs an explicit track height (a track of only absolute children collapses to 0 px) and one shared `transform` for every stop (a different one on the last stop overlapped its neighbour).
+- **`<p>` with a global `max-width: 62ch` inside a full-width rail** stopped scale labels mid-rail. Put scale labels inside the track, positioned at its ends.
+- **Next.js 16 static export writes nested prefetch files as `__next.<route>/__PAGE__.txt`** while the client asks for `__next.<route>.__PAGE__.txt`; every client-side prefetch 404s on a static host until a flat copy is written.
+- **Times for a place come from the place.** A sky for Southern California computed with the visitor's clock was wrong for visitors in other time zones; compute in `America/Los_Angeles` with `Intl`.
+- **Moon phase epoch:** the reference new moon 2000-01-06 18:14 UTC is day 10962.76 after the Unix epoch (not 10957.26, which is 2000-01-01).
+- **Cold-tab timings from a local Python server** read 1.6–6.5 s for DOMContentLoaded against 36–100 ms warm; treat them as instrument noise.
