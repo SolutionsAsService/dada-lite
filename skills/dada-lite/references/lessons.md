@@ -22,6 +22,9 @@ Process lessons, each from a real run (2026-10-29: Loadbearing, A-Z's Mobile Det
 - **A computed caption must not over-claim.** "The 15 brightest stars" was false for a hand-picked list; "15 bright stars from our 29-star chart" is true. Approximate figures say "about".
 - **Strangeness on the home page, recognition inside.** Every panel accepted a striking home hero with plain, navigable inner pages; none accepted strangeness that slowed booking.
 
+## Cheap runs still need a signature graphic
+- **A restyle without one bold, unique landing visual is a C.** A minimal-budget run (Electricity Guide) kept the old markup, added a theme and fixed links, and the user graded it C: nothing on the landing page was memorable. The retry added one inline-SVG schematic of the subject itself (sun → panel → charge controller → battery → inverter → bulb, with current animating round the loop and the guide's own 12 V × 10 A = 120 W). It cost a few minutes and no images. On a tight budget, spend it here first: one drawn, subject-specific hero graphic, then the theme.
+
 ## Branching is cheap and decisive
 - **Two hero spikes judged by three seats with a Pugh row** settled direction in one round; all three picked a merge of both. A spike is the hero plus one section, rendered at 1440 and 390.
 
