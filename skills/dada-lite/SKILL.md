@@ -76,5 +76,8 @@ Before acting on an OBJECT, **check its premise on the live page**. If a measure
 ### 6. Log and carry forward
 One file, `DESIGN-LOG.md`, kept short: plan and seed, move records, a table per panel round (seat, verdict, change), the audit totals per round, and a stop check. Add any new fact about the medium (a CSS trap, a capture trap) to `CARRY-FORWARD.md`, with the measurement that proved it.
 
+### 7. Optional human grade
+If the person grades the run (A+ to F, plus any words), append a **Human grade** section to `DESIGN-LOG.md`: the grade, the date, their words verbatim, and one line on what the run did that the grade most likely reflects. If a lessons repository is kept, add a row to its `GRADES.md`. Record only a grade the person gave; never ask for one as a gate or infer one from praise. Read past grades before planning: they show what this person values. No extra agents or rounds.
+
 ## What to tell the user
 The mode, how many panel rounds ran, the audit result, what was overruled by measurement, and every placeholder the owner must fill (phone, email, licence, photos, prices). Say plainly if the run stopped at the round cap with objections open.
